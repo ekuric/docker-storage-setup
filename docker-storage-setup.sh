@@ -155,9 +155,9 @@ create_data_lv() {
 
   # TODO: Error handling when DATA_SIZE > available space.
   if [[ $DATA_SIZE == *%* ]]; then
-    lvcreate -l $DATA_SIZE -n $DATA_LV_NAME $VG
+    lvcreate -y -l $DATA_SIZE -n $DATA_LV_NAME $VG
   else
-    lvcreate -L $DATA_SIZE -n $DATA_LV_NAME $VG
+    lvcreate -y -L $DATA_SIZE -n $DATA_LV_NAME $VG
   fi
 }
 
@@ -281,7 +281,7 @@ unit: sectors
 
 ${dev}1 : start=     2048, size=  ${size}, Id=8e
 EOF
-    pvcreate ${dev}1
+    pvcreate -y ${dev}1
     PVS="$PVS ${dev}1"
   done
 }
