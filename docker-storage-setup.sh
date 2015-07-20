@@ -155,9 +155,9 @@ create_data_lv() {
 
   # TODO: Error handling when DATA_SIZE > available space.
   if [[ $DATA_SIZE == *%* ]]; then
-    lvcreate -y -l $DATA_SIZE -n $DATA_LV_NAME $VG
+    lvcreate -l $DATA_SIZE -n $DATA_LV_NAME $VG
   else
-    lvcreate -y -L $DATA_SIZE -n $DATA_LV_NAME $VG
+    lvcreate -L $DATA_SIZE -n $DATA_LV_NAME $VG
   fi
 }
 
